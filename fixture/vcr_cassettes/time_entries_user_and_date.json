@@ -1,0 +1,48 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "basic_auth": [
+          "roadrunner@acme.com",
+          "beepbeep"
+        ]
+      },
+      "request_body": "",
+      "url": "https://acme.harvestapp.com/daily/272/2015?of_user=174807"
+    },
+    "response": {
+      "body": "{\n   \"day_entries\": [ {\n\n \"project_id\": \"2501399\",\n \"project\": \"Customer Project 2\",\n \"user_id\": 174807,\n \"spent_at\": \"2015-09-29\",\n \"task_id\": \"698927\",\n \"task\": \"Software Development\",\n \"client\": \"Customer1\",\n \"id\": 379234955,\n \"notes\": \"Fixing login issues\",\n \"created_at\": \"2015-09-29T13:54:49Z\",\n \"updated_at\": \"2015-10-05T14:32:51Z\",\n \n \"hours_without_timer\": 2.12,\n \"hours\": 2.12}\n],\n   \"projects\": [{\n\"name\": \"Customer Project 1\",\n\"code\": \"\",\n\"id\": 3960746,\n\"billable\": true,\n\"tasks\": [{\"name\": \"Software Development\", \"billable\": true, \"id\": 698927}],\n\"client\": \"Customer1\",\n\"client_id\": 1185368,\n\"client_currency\": \"United States Dollar - USD\",\n\"client_currency_symbol\": \"$\"}\n\n],\n   \"for_day\": \"2015-09-29\"}\n",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Tue, 20 Oct 2015 15:48:36 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Status": "200 OK",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "private, no-store, no-cache, max-age=0, must-revalidate",
+        "p3p": "CP=\"Our privacy policy is available online: https://acmegetharvest.com/services/privacy-policy\"",
+        "Content-Security-Policy": "referrer origin-when-crossorigin",
+        "Content-Security-Policy-Report-Only": "report-uri /csp_reports?authenticity_token=4GCd%2FBDCVc5q9OACRc%2BHuWzq57yzw8%2BOqEm7ifXb19w%3D; default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' cache.harvestapp.com www.googletagmanager.com www.googleadservices.com platform.twitter.com *.google-analytics.com www.google.com js-agent.newrelic.com *.nr-data.net js.appcenter.intuit.com ajax.googleapis.com; style-src 'self' 'unsafe-inline' cache.harvestapp.com www.google.com js.appcenter.intuit.com",
+        "X-Company-Cache-Version": "11113",
+        "X-Served-From": "https://acme.harvestapp.com/daily/272/2015",
+        "Set-Cookie": "_harvest_sess=bE9YcnVpNUNxeGRKSWlDR3hqSTMvd0xJS3NRc2JEQ3RxMkI4ZVd6L1NVZ3Rlc0g3cU9HMDRDZXRRRnMwcitMMXdkTzVoWk9CSmY5TCtVRjQyVHBER3A0RFhXdzhQdW5rbmxXa2tkRXZjak4rNnA4Sjh6SmdZUFFDVVk5YmxXU1grTjZDWU14SG1UaXFwYUFrcUdWUkpxakZrNHk4dmtHQUxUUE5RWGFyY3Q2VUZ1RjQyUmNXRll6aUc1WGE5UHJxQnNuNlF2ZlUyeHVNTmRxUWQwUzMyTFdLUzNDVG5xNzQzZUZDSXdHdW11az0tLUdzWTdwZFM0YUF6MGxkRGFjWmZrMmc9PQ%3D%3D--fa3aed1d6bbb4a38f980e66f5f47aae6ec2293e6; domain=harvestapp.com; path=/; expires=Wed, 04 Nov 2015 15:48:36 -0000; secure; HttpOnly",
+        "X-Request-Id": "4499a1a9-77f1-431c-895a-b1e44e097d34",
+        "X-Runtime": "0.822219",
+        "X-Server": "rails2",
+        "X-LB": "lb1",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -1,0 +1,48 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "method": "get",
+      "options": {
+        "basic_auth": [
+          "roadrunner@acme.com",
+          "beepbeep"
+        ]
+      },
+      "request_body": "",
+      "url": "https://acme.harvestapp.com/daily/show/379234955?of_user=174807"
+    },
+    "response": {
+      "body": "{\n\n \"project_id\": \"2501399\",\n \"project\": \"Customer Project 2\",\n \"user_id\": 174807,\n \"spent_at\": \"2015-09-29\",\n \"task_id\": \"698927\",\n \"task\": \"Software Development\",\n \"client\": \"Customer1\",\n \"id\": 379234955,\n \"notes\": \"Fixing login issues\",\n \"created_at\": \"2015-09-29T13:54:49Z\",\n \"updated_at\": \"2015-10-05T14:32:51Z\",\n \n \"hours_without_timer\": 2.12,\n \"hours\": 2.12}\n",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Wed, 21 Oct 2015 16:28:06 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Status": "200 OK",
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Cache-Control": "private, no-store, no-cache, max-age=0, must-revalidate",
+        "p3p": "CP=\"Our privacy policy is available online: https://acmegetharvest.com/services/privacy-policy\"",
+        "Content-Security-Policy": "referrer origin-when-crossorigin",
+        "Content-Security-Policy-Report-Only": "report-uri /csp_reports?authenticity_token=4clpQhl9mjRX4k6%2FNyO22jCKEheb0QxnOr%2Brmg1gChA%3D; default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' cache.harvestapp.com www.googletagmanager.com www.googleadservices.com platform.twitter.com *.google-analytics.com www.google.com js-agent.newrelic.com *.nr-data.net js.appcenter.intuit.com ajax.googleapis.com; style-src 'self' 'unsafe-inline' cache.harvestapp.com www.google.com js.appcenter.intuit.com",
+        "X-Company-Cache-Version": "11113",
+        "X-Served-From": "https://acme.harvestapp.com/daily/show/37923495",
+        "Set-Cookie": "_harvest_sess=cTVrRWVOUlZ6eXI2N2JyTjNpUGxLUTRXMXNaTEh4c3M3UXRCdG1CcGJGRzZ1dVJVdGxQczBhbFBQbFp1Ulpwb3ZWUXJTWlJUSDRmN2JyVUhrSnpJOVlxT29JSlh5elJOWkxVMmQ5MTZBcUhabWhXRlIrOVM4bXMzTG5iYTdXTGdUNGhsT3NkdlluOEJ5aVBUVjh4VEI5MEl5VHBRYU82ekw5MEFvVGRqQWVGVEZUc2xMSmZVcEhFOURuTXJtSzZGaERDYjBQOHZiVm1YZjJKVmxzd2ROemlVZ2VHWW5VTzFQeC95ZjdUMTNEYz0tLXdXZ0NncVJSSGlNdlNuSXd1S2R3aUE9PQ%3D%3D--76f0085354fc9f348628f165ec81a0e4497d2e4a; domain=harvestapp.com; path=/; expires=Thu, 05 Nov 2015 16:28:06 -0000; secure; HttpOnly",
+        "X-Request-Id": "b278f7f1-550a-4fbd-b301-b5805a31a3f8",
+        "X-Runtime": "0.432057",
+        "X-Server": "rails14",
+        "X-LB": "lb1",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
