@@ -1,7 +1,9 @@
 Harvest
 =====
 
-Harvest Time Tracking API Wrapper written in Elixir
+Harvest Time Tracking API Wrapper written in Elixir.
+
+Only supports read operations at this time.
 
 ## Installation
 Add Harvest to your `mix.exs` dependencies:
@@ -34,3 +36,5 @@ iex(1)> Harvest.get_entries([user: "174807", year: "2015", day: "272"])
 iex(1)> Harvest.get_entry([day_entry_id: "379234955"])
 iex(1)> Harvest.get_entry([user: "174807", day_entry_id: "379234955"])
 ```
+
+Refer to [Harvest API document](https://github.com/harvesthq/api/blob/master/Sections/Time%20Tracking.md) for more details.
