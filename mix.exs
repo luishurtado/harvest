@@ -38,7 +38,7 @@ defmodule Harvest.Mixfile do
   end
 
   defp package do
-    [contributors: ["luishurtado"],
+    [maintainers:  ["luishurtado"],
      licenses:     ["MIT"],
      links:        %{"GitHub" => "https://github.com/luishurtado/harvest"} ]
   end
