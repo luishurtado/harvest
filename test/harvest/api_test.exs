@@ -2,7 +2,23 @@ defmodule Harvest.APITest do
   use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-#  alias Harvest.API
+  setup_all do
+    unless Application.get_env(:harvest, :company) do
+      Application.put_env(:harvest, :company, "acme")
+    end
+
+    unless Application.get_env(:harvest, :email) do
+      Application.put_env(:harvest, :email, "roadrunner@acme.com")
+    end
+
+    unless Application.get_env(:harvest, :password) do
+      Application.put_env(:harvest, :password, "beepbeep")
+    end
+
+    unless Application.get_env(:harvest, :has_ssl) do
+      Application.put_env(:harvest, :has_ssl, true)
+    end
+  end
 
   defp time_entries do
     %{day_entries: [time_entry],
