@@ -4,7 +4,7 @@ defmodule Harvest.Mixfile do
   def project do
     [app: :harvest,
      version: "0.0.2",
-     elixir: "~> 1.1",
+     elixir: "~> 1.2",
      description: "Harvest Time Tracking API wrapper written in Elixir",
      package: package,
      build_embedded: Mix.env == :prod,
@@ -29,12 +29,12 @@ defmodule Harvest.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    [{:httpoison, "~> 0.8.0"},
-     {:poison,    "~> 1.5.0"},
-     {:exvcr,     "~> 0.7.0", only: :test},
+    [{:httpoison, "~> 0.8"},
+     {:poison,    "~> 2.1"},
+     {:exvcr,     "~> 0.7", only: :test},
      {:earmark,   "~> 0.2",   only: :docs},
      {:ex_doc,    "~> 0.11",  only: :docs},
-     {:inch_ex,   "~> 0.4",   only: :docs}]
+     {:inch_ex,   "~> 0.5",   only: :docs}]
   end
 
   defp package do
