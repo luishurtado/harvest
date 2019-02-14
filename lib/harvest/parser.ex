@@ -14,9 +14,9 @@ defmodule Harvest.Parser do
 
   defp parse(result, :entries) do
     %{
-      day_entries: parse(:day_entries, result[:day_entries]),
-      projects: parse(:projects, result[:projects]),
-      for_day: result[:for_day]
+      day_entries: parse(:time_entries, result[:time_entries]),
+      #projects: parse(:projects, result[:projects]),
+      #for_day: result[:for_day]
     }
   end
   defp parse(result, :entry), do: %{entry: parse(DayEntry, result)}

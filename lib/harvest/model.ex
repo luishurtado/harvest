@@ -6,39 +6,35 @@ defmodule Harvest.Model do
   https://github.com/harvesthq/api/blob/master/Sections/Time%20Tracking.md
   """
 
-  defmodule DayEntry do
+  defmodule TimeEntry do
     defstruct id:               nil,
-              spent_at:         nil,
-              user_id:          nil,
+              spent_date:       nil,
+              user:             nil,
               client:           nil,
-              project_id:       nil,
               project:          nil,
-              task_id:          nil,
               task:             nil,
               hours:            nil,
               notes:            nil,
               created_at:       nil,
               updated_at:       nil,
               timer_started_at: nil,
-              started_at:       nil,
+              started_time:     nil,
               ended_at:         nil
 
-    @type t :: %DayEntry{
-      id:               integer,
-      spent_at:         binary,
-      user_id:          integer,
-      client:           binary,
-      project_id:       binary,
-      project:          binary,
-      task_id:          binary,
-      task:             binary,
-      hours:            float,
-      notes:            binary,
-      created_at:       binary,
-      updated_at:       binary,
-      timer_started_at: binary,
-      started_at:       binary,
-      ended_at:         binary
+    @type t :: %TimeEntry{
+      id:                integer,
+      spent_date:        binary,
+      user:              integer,
+      client:            binary,
+      project:           binary,
+      task:              binary,
+      hours:             float,
+      notes:             binary,
+      created_at:        binary,
+      updated_at:        binary,
+      timer_started_at:  binary,
+      started_time:      binary,
+      ended_at:          binary
     }
   end
 
@@ -47,20 +43,20 @@ defmodule Harvest.Model do
               hours_for_previously_running_timer: nil
 
     @type t :: %Timer{
-      day_entry: DayEntry.t,
+      day_entry: TimeEntry.t,
       hours_for_previously_running_timer: float
     }
   end
 
   defmodule Task do
-    defstruct id: nil,
-              name: nil,
-              billable: true
+    defstruct id:        nil,
+              name:      nil,
+              billable_by_default:  true
 
     @type t :: %Task{
       id: integer,
       name: binary,
-      billable: boolean
+      billable_by_default: boolean
     }
   end
 
@@ -75,7 +71,7 @@ defmodule Harvest.Model do
       id: integer,
       name: binary,
       code: binary,
-      billable: boolean,
+      is_billable: boolean,
       tasks: [Task.t]
     }
 
