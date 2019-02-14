@@ -3,13 +3,13 @@ defmodule Harvest.Parser do
   Provides parser logics for API results.
   """
 
-  alias Harvest.Model.DayEntry
+  alias Harvest.Model.TimeEntry
   alias Harvest.Model.Task
   alias Harvest.Model.Project
 
   def parse_result(result, action), do: parse(result, action)
 
-  defp parse(:day_entries, l) when is_list(l), do: Enum.map(l, &(parse(DayEntry, &1)))
+  defp parse(:time_entries, l) when is_list(l), do: Enum.map(l, &(parse(TimeEntry, &1)))
   defp parse(:projects, l) when is_list(l), do: Enum.map(l, &(parse(Project, &1)))
 
   defp parse(result, :entries) do

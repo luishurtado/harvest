@@ -64,7 +64,7 @@ defmodule Harvest.Model do
     defstruct id: nil,
               name: nil,
               code: nil,
-              billable: true,
+              is_billable: true,
               tasks: nil
 
     @type t :: %Project{
