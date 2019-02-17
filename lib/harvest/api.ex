@@ -45,7 +45,7 @@ defmodule Harvest.API do
   end
 
   defp build_url(:project, [date: date]) do
-    "#{protocol()}://api.harvestapp.com/v2/projects?from=#{date}&to=#{date}" #I'm not sure if this functions good
+    "#{protocol()}://api.harvestapp.com/v2/projects?from=#{date}&to=#{date}"
   end
 
   defp build_url(:project, [project_id: project_id]) do
