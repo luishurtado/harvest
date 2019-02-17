@@ -3,7 +3,7 @@ defmodule Harvest.Model do
   Types used in Harvest Time Tracking API.
 
   ## Reference
-  https://github.com/harvesthq/api/blob/master/Sections/Time%20Tracking.md
+  https://help.getharvest.com/api-v2/
   """
 
   defmodule TimeEntry do
@@ -12,7 +12,9 @@ defmodule Harvest.Model do
               user:             nil,
               client:           nil,
               project:          nil,
+              user_assignment:  nil,
               task:             nil,
+              task_assignment:  nil,
               hours:            nil,
               notes:            nil,
               created_at:       nil,
@@ -27,7 +29,9 @@ defmodule Harvest.Model do
       user:              integer,
       client:            binary,
       project:           binary,
+      user_assignment:   binary,
       task:              binary,
+      task_assignment:   binary,
       hours:             float,
       notes:             binary,
       created_at:        binary,
@@ -38,19 +42,9 @@ defmodule Harvest.Model do
     }
   end
 
-  defmodule Timer do
-    defstruct day_entry: nil,
-              hours_for_previously_running_timer: nil
-
-    @type t :: %Timer{
-      day_entry: TimeEntry.t,
-      hours_for_previously_running_timer: float
-    }
-  end
-
   defmodule Task do
-    defstruct id:        nil,
-              name:      nil,
+    defstruct id: nil,
+              name: nil,
               billable_by_default:  true
 
     @type t :: %Task{
@@ -64,15 +58,13 @@ defmodule Harvest.Model do
     defstruct id: nil,
               name: nil,
               code: nil,
-              is_billable: true,
-              tasks: nil
+              is_billable: true
 
     @type t :: %Project{
       id: integer,
       name: binary,
       code: binary,
-      is_billable: boolean,
-      tasks: [Task.t]
+      is_billable: boolean
     }
 
   end

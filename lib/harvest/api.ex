@@ -14,28 +14,51 @@ defmodule Harvest.API do
     if has_ssl(), do: "https", else: "http"
   end
 
-  defp build_url([]) do
+  #Time Entries
+  defp build_url(:entry, []) do
     "#{protocol()}://api.harvestapp.com/v2/time_entries"
   end
 
-  defp build_url([user: user]) do
+  defp build_url(:entry, [user: user]) do
     "#{protocol()}://api.harvestapp.com/v2/time_entries?of_user=#{user}"
   end
 
-  defp build_url([date: date]) do
+  defp build_url(:entry, [date: date]) do
     "#{protocol()}://api.harvestapp.com/v2/time_entries?from=#{date}&to=#{date}"
   end
 
-  defp build_url([user: user, date: date]) do
+  defp build_url(:entry, [user: user, date: date]) do
     "#{protocol()}://api.harvestapp.com/v2/time_entries?from=#{date}&to=#{date}&user_id=#{user}"
   end
 
-  defp build_url([day_entry_id: day_entry_id]) do
-    "#{protocol()}://api.harvestapp.com/v2/time_entries/#{day_entry_id}"
+  defp build_url(:entry, [time_entry_id: time_entry_id]) do
+    "#{protocol()}://api.harvestapp.com/v2/time_entries/#{time_entry_id}"
   end
 
-  defp build_url([user: user, day_entry_id: day_entry_id]) do
-    "#{protocol()}://api.harvestapp.com/v2/time_entries/#{day_entry_id}?of_user=#{user}"
+  defp build_url(:entry, [user: user, time_entry_id: time_entry_id]) do
+    "#{protocol()}://api.harvestapp.com/v2/time_entries/#{time_entry_id}?of_user=#{user}"
+  end
+
+  #Projects
+  defp build_url(:project, []) do
+    "#{protocol()}://api.harvestapp.com/v2/projects"
+  end
+
+  defp build_url(:project, [date: date]) do
+    "#{protocol()}://api.harvestapp.com/v2/projects?from=#{date}&to=#{date}" #I'm not sure if this functions good
+  end
+
+  defp build_url(:project, [project_id: project_id]) do
+    "#{protocol()}://api.harvestapp.com/v2/projects/#{project_id}"
+  end
+
+  #Tasks
+  defp build_url(:task, []) do
+    "#{protocol()}://api.harvestapp.com/v2/tasks"
+  end
+
+  defp build_url(:task, [task_id: task_id]) do
+    "#{protocol()}://api.harvestapp.com/v2/tasks/#{task_id}"
   end
 
   defp headers do
@@ -47,44 +70,66 @@ defmodule Harvest.API do
     }
   end
 
-  defp basic_auth do
-    #[hackney: [basic_auth: {email, password}]]
-  end
-
   def get_entries do
-    request([])
+    request(:entry, [])
     |> process_response(:entries)
   end
 
   def get_entries([user: user]) do
-    request([user: user])
+    request(:entry, [user: user])
     |> process_response(:entries)
   end
 
   def get_entries([year: year, month: month, day: day]) do
     {:ok, date} = Date.new(year, month, day)
-    request([date: date])
+    request(:entry, [date: date])
     |> process_response(:entries)
   end
 
   def get_entries([user: user, year: year, month: month, day: day]) do
     {:ok, date} = Date.new(year, month, day)
-    request([user: user, date: date])
+    request(:entry, [user: user, date: date])
     |> process_response(:entries)
   end
 
-  def get_entry([day_entry_id: day_entry_id]) do
-    request([day_entry_id: day_entry_id])
+  def get_entry([time_entry_id: time_entry_id]) do
+    request(:entry, [time_entry_id: time_entry_id])
     |> process_response(:entry)
   end
 
-  def get_entry([user: user, day_entry_id: day_entry_id]) do
-    request([user: user, day_entry_id: day_entry_id])
+  def get_entry([user: user, time_entry_id: time_entry_id]) do
+    request(:entry, [user: user, time_entry_id: time_entry_id])
     |> process_response(:entry)
   end
 
-  defp request(params) do
-    build_url(params)
+  def get_projects do
+    request(:project, [])
+    |> process_response(:projects)
+  end
+
+  def get_projects([year: year, month: month, day: day]) do
+    {:ok, date} = Date.new(year, month, day)
+    request(:project, [date: date])
+    |> process_response(:projects)
+  end
+
+  def get_project([project_id: project_id]) do
+    request(:project, [project_id: project_id])
+    |> process_response(:project)
+  end
+
+  def get_tasks do
+    request(:task, [])
+    |> process_response(:tasks)
+  end
+
+  def get_task([task_id: task_id]) do
+    request(:task, [task_id: task_id])
+    |> process_response(:task)
+  end
+
+  defp request(api_object, params) do
+    build_url(api_object, params)
     |> HTTPoison.get(headers())
   end
 

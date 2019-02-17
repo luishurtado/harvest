@@ -11,27 +11,17 @@ defmodule Harvest.Parser do
 
   defp parse(:time_entries, l) when is_list(l), do: Enum.map(l, &(parse(TimeEntry, &1)))
   defp parse(:projects, l) when is_list(l), do: Enum.map(l, &(parse(Project, &1)))
+  defp parse(:tasks, l) when is_list(l), do: Enum.map(l, &(parse(Task, &1)))
 
-  defp parse(result, :entries) do
-    %{
-      day_entries: parse(:time_entries, result[:time_entries]),
-      #projects: parse(:projects, result[:projects]),
-      #for_day: result[:for_day]
-    }
-  end
-  defp parse(result, :entry), do: %{entry: parse(DayEntry, result)}
-
-  defp parse(Project, p) when is_map(p) do
-    struct(Project, Enum.map(p, &(parse(&1))))
-  end
+  defp parse(result, :entries), do: %{time_entries: parse(:time_entries, result[:time_entries])}
+  defp parse(result, :entry), do: %{entry: parse(TimeEntry, result)}
+  defp parse(result, :projects), do: %{projects: parse(:projects, result[:projects])}
+  defp parse(result, :project), do: %{project: parse(Project, result)}
+  defp parse(result, :tasks), do: %{tasks: parse(:tasks, result[:tasks])}
+  defp parse(result, :task), do: %{task: parse(Task, result)}
 
   defp parse(type, val) do
-    struct(type, Enum.map(val, &(parse(&1))))
+    struct(type, val)
   end
 
-  defp parse({:tasks, tasks}) when is_list(tasks) do
-    {:tasks, Enum.map(tasks, &(parse(Task, &1)))}
-  end
-
-  defp parse(others), do: others
 end
