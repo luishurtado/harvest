@@ -69,10 +69,4 @@ defmodule Harvest.Model do
 
   end
 
-  defmodule Error do
-    defexception reason: nil
-    @type t :: %Error{reason: any}
-
-    def message(%Error{reason: reason}), do: inspect(reason)
-  end
 end

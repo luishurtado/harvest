@@ -135,10 +135,10 @@ defmodule Harvest.API do
 
   defp process_response(response, action) do
     case response do
-      {:error, %HTTPoison.Error{reason: reason}} -> {:error, %Error{reason: reason}}
-      {:ok, %HTTPoison.Response{body: body}} ->
+      {:ok, %HTTPoison.Response{body: body, status_code:  200}} ->
         Poison.decode!(body, keys: :atoms)
         |> Harvest.Parser.parse_result(action)
+      {:ok, %HTTPoison.Response{body: body}}-> Poison.decode!(body, keys: :atoms)
     end
   end
 
